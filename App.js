@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import ProjectCard from './components/ProjectCard';
 import './App.css';
+import ProjectWidget from './src/components/ProjectWidget';
 
 const App = () => {
     const [projects, setProjects] = useState([]);
@@ -21,7 +21,7 @@ const App = () => {
             <div className="container">
                 <div className="row">
                     {projects.map(project => (
-                        <ProjectCard
+                        <ProjectWidget
                             key={project.id}
                             title={project.title}
                             description={project.description}
