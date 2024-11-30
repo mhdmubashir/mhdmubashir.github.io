@@ -17,55 +17,81 @@
             background-color: #f8f9fa;
             color: #333;
         }
+
         .hero {
             background-color: #f0f4f8;
             color: #333;
             padding: 60px 0;
         }
+
         .hero h1 {
             font-size: 2.5rem;
             font-weight: 500;
             margin-bottom: 15px;
         }
+
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
         }
+
         .btn-primary {
             background-color: #007bff;
             border: none;
         }
+
         .btn-primary:hover {
             background-color: #0056b3;
         }
+
         .btn-secondary {
             background-color: #6c757d;
             border: none;
         }
+
         .btn-secondary:hover {
             background-color: #495057;
         }
-        .about, .contact {
+
+        .about {
             padding: 40px 0;
         }
-        .about h2, .contact h2 {
+
+        .about h2 {
             font-size: 1.8rem;
             font-weight: 500;
             margin-bottom: 20px;
         }
+
+        .profile-img {
+            width: 100%;
+            max-width: 250px; /* Medium size */
+            border-radius: 50%;
+            margin: auto;
+        }
+
         .social-links a {
             margin: 0 10px;
             color: #6c757d;
             font-size: 1.5rem;
         }
+
         .social-links a:hover {
             color: #007bff;
         }
+
         .footer {
             background-color: #343a40;
             color: #fff;
             padding: 20px 0;
             font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .about .row {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -82,28 +108,27 @@
     <!-- Hero Section End -->
 
     <!-- About Section Start -->
-<section id="about" class="about text-center">
-    <div class="container">
-        <h2>Who I Am?</h2>
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <img src="junuimg/mhdmubnewimg.jpeg" alt="Muhammed Mubashir" class="img-fluid rounded" style="border-radius: 60px;">
-            </div>
-            <div class="col-md-6">
-                <p>
-                    I'm Muhammed Mubashir, a curious problem-solver and tech enthusiast from Kerala. Currently pursuing BVoc in Mobile Application Development, 
-                    I love blending creativity with technology to build apps and websites that leave a lasting impact. 
-                </p>
-                <p>
-                    My journey in tech is driven by a passion for learning, experimenting, and creating solutions that simplify life. When I'm not coding, 
-                    you can find me exploring new tools, watching tech talks, or sketching out my next big idea!
-                </p>
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="text-center">Who I Am?</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <img src="junuimg/mhdmubnewimg.jpeg" alt="Muhammed Mubashir" class="profile-img img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        I'm Muhammed Mubashir, a curious problem-solver and tech enthusiast from Kerala. Currently pursuing BVoc in Mobile Application Development, 
+                        I love blending creativity with technology to build apps and websites that leave a lasting impact. 
+                    </p>
+                    <p>
+                        My journey in tech is driven by a passion for learning, experimenting, and creating solutions that simplify life. When I'm not coding, 
+                        you can find me exploring new tools, watching tech talks, or sketching out my next big idea!
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- About Section End -->
-
+    </section>
+    <!-- About Section End -->
 
     <!-- Contact Section Start -->
     <section id="contact" class="contact text-center">
