@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "title": "Teachers Companion",
+      "description": "A comprehensive web application for managing academic and administrative tasks for teachers.",
+      "image": "img/project1.jpg",
+      "link": "https://github.com/mhdmubashir/teachers-companion"
+    },
+    {
+      "id": 2,
+      "title": "E-Learning Platform",
+      "description": "An adaptable e-learning solution designed for schools and colleges, with a focus on seamless learning experiences.",
+      "image": "img/project2.jpg",
+      "link": "https://github.com/mhdmubashir/e-learning"
+    },
+    {
+      "id": 3,
+      "title": "Grocery & Food App",
+      "description": "A Flutter-based app with separate interfaces for users, shopkeepers, and delivery personnel.",
+      "image": "img/project3.jpg",
+      "link": "https://github.com/mhdmubashir/grocery-food-app"
+    }
+  ]
+  
