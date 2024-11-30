@@ -7,21 +7,74 @@
     <meta name="keywords" content="Web Developer, Mobile App Developer">
     <meta name="description" content="Muhammed Mubashir Portfolio">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
     <!-- Fonts & Libraries -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .hero {
+            background-color: #f0f4f8;
+            color: #333;
+            padding: 60px 0;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #495057;
+        }
+        .about, .contact {
+            padding: 40px 0;
+        }
+        .about h2, .contact h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: #6c757d;
+            font-size: 1.5rem;
+        }
+        .social-links a:hover {
+            color: #007bff;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Hero Section Start -->
-    <section id="home" class="hero text-center py-5">
+    <section id="home" class="hero text-center">
         <div class="container">
             <h1>Muhammed Mubashir</h1>
-            <p class="lead">Mobile App Developer | Web Developer</p>
+            <p>Mobile App & Web Developer</p>
             <a href="https://drive.google.com/file/d/1FdBRRwI_bSL6f16KkGhyGp_ZQVdACkRc/view?usp=sharing" download class="btn btn-primary m-2">Download CV</a>
             <a href="projects.html" class="btn btn-secondary m-2">See Projects</a>
         </div>
@@ -29,20 +82,33 @@
     <!-- Hero Section End -->
 
     <!-- About Section Start -->
-    <section id="about" class="about py-5 bg-light">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>
-                I'm Muhammed Mubashir from Kerala/Malappuram. Currently pursuing my first year of BVoc Mobile Application Development at Amal College Nilambur. Passionate about software development and exploring innovative solutions in the tech field.
-            </p>
+<section id="about" class="about text-center">
+    <div class="container">
+        <h2>Who I Am?</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="img/profile.jpg" alt="Muhammed Mubashir" class="img-fluid rounded" style="border-radius: 20px;">
+            </div>
+            <div class="col-md-6">
+                <p>
+                    I'm Muhammed Mubashir, a curious problem-solver and tech enthusiast from Kerala. Currently pursuing BVoc in Mobile Application Development, 
+                    I love blending creativity with technology to build apps and websites that leave a lasting impact. 
+                </p>
+                <p>
+                    My journey in tech is driven by a passion for learning, experimenting, and creating solutions that simplify life. When I'm not coding, 
+                    you can find me exploring new tools, watching tech talks, or sketching out my next big idea!
+                </p>
+            </div>
         </div>
-    </section>
-    <!-- About Section End -->
+    </div>
+</section>
+<!-- About Section End -->
+
 
     <!-- Contact Section Start -->
-    <section id="contact" class="contact py-5">
-        <div class="container text-center">
-            <h2>Contact Me</h2>
+    <section id="contact" class="contact text-center">
+        <div class="container">
+            <h2>Contact</h2>
             <p>Phone: +91 9446027717</p>
             <p>Email: <a href="mailto:mubashirmuhammed547@gmail.com">mubashirmuhammed547@gmail.com</a></p>
             <div class="social-links">
@@ -57,7 +123,7 @@
     <!-- Contact Section End -->
 
     <!-- Footer Start -->
-    <footer class="footer bg-dark text-center text-white py-3">
+    <footer class="footer text-center">
         &copy; 2024 Muhammed Mubashir. All Rights Reserved.
     </footer>
     <!-- Footer End -->
