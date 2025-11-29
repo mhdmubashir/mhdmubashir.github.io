@@ -1,38 +1,105 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+  <head>
+    <base href="/" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+    <!-- Primary SEO -->
+    <title>Muhammed Mubashir | Portfolio</title>
+    <meta
+      name="description"
+      content="Muhammed Mubashir - Flutter & Web Developer. Portfolio, projects, GitHub profile, and contact information. Searchable by Muhammed Mubashir, mhdmubashir, VKD, TKVL, Thacharakkavil."
+    />
+    <meta
+      name="keywords"
+      content="Muhammed Mubashir, mhdmubashir, VKD, TKVL, Thacharakkavil, Flutter developer, Web developer, Portfolio, GitHub"
+    />
+    <meta name="author" content="Muhammed Mubashir" />
+    <meta name="robots" content="index, follow" />
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    <!-- Favicon & Apple Icons -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+    <link rel="manifest" href="manifest.json" />
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
+    <!-- Social Media / Open Graph -->
+    <meta property="og:title" content="Muhammed Mubashir | Portfolio" />
+    <meta
+      property="og:description"
+      content="Flutter & Web Developer Portfolio. Projects, GitHub, and contact info. Searchable as Muhammed Mubashir, mhdmubashir, VKD, TKVL, Thacharakkavil."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mhdmubashir.github.io" />
+    <meta property="og:image" content="assets/images/og-image.png" />
+    <!-- optional: screenshot or logo -->
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Muhammed Mubashir | Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Flutter & Web Developer Portfolio. Projects, GitHub, and contact info."
+    />
+    <meta name="twitter:image" content="assets/images/og-image.png" />
 
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="portfolio_website">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <!-- Structured Data (JSON-LD) for Google -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhammed Mubashir",
+        "url": "https://mhdmubashir.github.io",
+        "sameAs": [
+          "https://github.com/mhdmubashir",
+          "https://www.linkedin.com/in/muhammed-mubashir",
+          "https://twitter.com/yourhandle"
+        ],
+        "jobTitle": "Flutter & Web Developer"
+      }
+    </script>
+  </head>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <body>
+    <div id="splash">
+      <lottie-player
+        src="assets/lottie/loading.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay
+      >
+      </lottie-player>
+    </div>
 
-  <title>portfolio_website</title>
-  <link rel="manifest" href="manifest.json">
-</head>
-<body>
-  <script src="flutter_bootstrap.js" async></script>
-</body>
+    <script src="flutter_bootstrap.js" async></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+      window.addEventListener("flutter-first-frame", function () {
+        document.getElementById("splash").style.display = "none";
+      });
+    </script>
+    <style>
+      /* Full screen black background and center Lottie */
+      #splash {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999; /* above everything */
+      }
+
+      /* Optional: make Lottie a bit bigger on screen */
+      #splash lottie-player {
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </body>
 </html>
