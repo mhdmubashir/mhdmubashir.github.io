@@ -1,105 +1,183 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <base href="/" />
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary SEO -->
-    <title>Muhammed Mubashir | Portfolio</title>
+    <!-- Primary SEO Meta Tags -->
+    <title>Muhammed Mubashir — Full Stack Developer | Kerala, India</title>
+    <meta
+      name="title"
+      content="Muhammed Mubashir — Full Stack Developer | Kerala, India"
+    />
     <meta
       name="description"
-      content="Muhammed Mubashir - Flutter & Web Developer. Portfolio, projects, GitHub profile, and contact information. Searchable by Muhammed Mubashir, mhdmubashir, VKD, TKVL, Thacharakkavil."
+      content="Full Stack Developer specializing in scalable mobile and web applications. Expert in BLoC Architecture, Firebase, AWS, Node.js, and Laravel. Available for hire in Kerala, India and UAE."
     />
     <meta
       name="keywords"
-      content="Muhammed Mubashir, mhdmubashir, VKD, TKVL, Thacharakkavil, Flutter developer, Web developer, Portfolio, GitHub"
+      content="Flutter Developer, Full Stack Developer, Mobile App Developer, Dart, BLoC Architecture, Firebase, AWS, Node.js, Laravel, React, Kerala, India, UAE, hire flutter developer"
     />
     <meta name="author" content="Muhammed Mubashir" />
     <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
 
-    <!-- Favicon & Apple Icons -->
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
-    <link rel="manifest" href="manifest.json" />
-
-    <!-- Social Media / Open Graph -->
-    <meta property="og:title" content="Muhammed Mubashir | Portfolio" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta
+      property="og:title"
+      content="Muhammed Mubashir — Flutter & Full Stack Developer"
+    />
     <meta
       property="og:description"
-      content="Flutter & Web Developer Portfolio. Projects, GitHub, and contact info. Searchable as Muhammed Mubashir, mhdmubashir, VKD, TKVL, Thacharakkavil."
+      content="Building scalable mobile and web applications with performance and precision. Flutter specialist with expertise in BLoC, Firebase, AWS, and more."
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mhdmubashir.github.io" />
-    <meta property="og:image" content="assets/images/og-image.png" />
-    <!-- optional: screenshot or logo -->
+    <meta property="og:image" content="https://yourdomain.com/og-image.png" />
+    <meta property="og:site_name" content="Muhammed Mubashir Portfolio" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Muhammed Mubashir | Portfolio" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yourdomain.com/" />
     <meta
-      name="twitter:description"
-      content="Flutter & Web Developer Portfolio. Projects, GitHub, and contact info."
+      property="twitter:title"
+      content="Muhammed Mubashir — Flutter & Full Stack Developer"
     />
-    <meta name="twitter:image" content="assets/images/og-image.png" />
+    <meta
+      property="twitter:description"
+      content="Building scalable mobile and web applications with performance and precision."
+    />
+    <meta
+      property="twitter:image"
+      content="https://yourdomain.com/og-image.png"
+    />
 
-    <!-- Structured Data (JSON-LD) for Google -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Muhammed Mubashir",
-        "url": "https://mhdmubashir.github.io",
-        "sameAs": [
-          "https://github.com/mhdmubashir",
-          "https://www.linkedin.com/in/muhammed-mubashir",
-          "https://twitter.com/yourhandle"
-        ],
-        "jobTitle": "Flutter & Web Developer"
+        "jobTitle": "Full Stack Developer | Flutter Specialist",
+        "description": "Flutter Mobile Application Developer with strong problem-solving skills and a passion for building real-world applications.",
+        "url": "https://yourdomain.com",
+        "email": "mubashirmuhammed547@gmail.com",
+        "telephone": "+91-9446027717",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Kerala",
+          "addressCountry": "IN"
+        },
+        "sameAs": ["https://github.com/mhdmubashir", "https://linkedin.com"],
+        "knowsAbout": [
+          "Flutter",
+          "Dart",
+          "Firebase",
+          "AWS",
+          "Node.js",
+          "Laravel",
+          "BLoC Architecture"
+        ]
       }
     </script>
-  </head>
 
-  <body>
-    <div id="splash">
-      <lottie-player
-        src="assets/lottie/loading.json"
-        background="transparent"
-        speed="1"
-        loop
-        autoplay
-      >
-      </lottie-player>
-    </div>
-
-    <script src="flutter_bootstrap.js" async></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script>
-      window.addEventListener("flutter-first-frame", function () {
-        document.getElementById("splash").style.display = "none";
-      });
-    </script>
     <style>
-      /* Full screen black background and center Lottie */
-      #splash {
+      /* Critical CSS for fast above-the-fold render */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #f8f9fa;
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+      #loading {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: black;
+        right: 0;
+        bottom: 0;
+        background: #f8f9fa;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        z-index: 9999; /* above everything */
+        z-index: 9999;
+        transition: opacity 0.4s ease;
       }
-
-      /* Optional: make Lottie a bit bigger on screen */
-      #splash lottie-player {
-        width: 150px;
-        height: 150px;
+      #loading.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .loader-logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: #0a192f;
+        letter-spacing: -0.5px;
+        margin-bottom: 24px;
+      }
+      .loader-logo span {
+        color: #64ffda;
+      }
+      .loader-bar {
+        width: 160px;
+        height: 2px;
+        background: #e5e7eb;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .loader-fill {
+        height: 100%;
+        background: #64ffda;
+        border-radius: 2px;
+        animation: load 1.2s ease-in-out forwards;
+      }
+      @keyframes load {
+        from {
+          width: 0%;
+        }
+        to {
+          width: 100%;
+        }
       }
     </style>
+  </head>
+  <body>
+    <!-- Loading screen -->
+    <div id="loading">
+      <div class="loader-logo"><span>M</span>ubashir</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+
+    <!-- Flutter app target -->
+    <script>
+      window.addEventListener("flutter-first-frame", function () {
+        const loader = document.getElementById("loading");
+        if (loader) {
+          loader.classList.add("hidden");
+          setTimeout(() => loader.remove(), 500);
+        }
+      });
+    </script>
+
+    <script src="flutter_bootstrap.js" async></script>
   </body>
 </html>

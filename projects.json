@@ -1,12 +1,11 @@
 [
-  
     {
       "id": 1,
       "title": "E-Learning Platform",
       "description": "An adaptable e-learning solution designed for schools and colleges, with a focus on seamless learning experiences.",
       "image": "img/project2.jpg",
       "link": "https://github.com/mhdmubashir/e-learning"
-    },
+    },  
     {
       "id": 2,
       "title": "Grocery & Food App",

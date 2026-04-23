@@ -1,0 +1,74 @@
+{
+  "personal": {
+    "name": "Muhammed Mubashir",
+    "title": "Full Stack Developer",
+    "tagline": "Building scalable mobile and web applications with performance and precision.",
+    "location": "Kerala, India / UAE",
+    "phone": "+91-9446027717",
+    "email": "mubashirmuhammed547@gmail.com",
+    "github": "https://github.com/mhdmubashir",
+    "linkedin": "https://www.linkedin.com/in/muhammed-mubashir-399070251/",
+    "portfolio": "https://yourdomain.com"
+  },
+  "about": {
+    "description": "Flutter Mobile Application Developer with strong problem-solving skills and a passion for building real-world applications. Experienced in Flutter, React, Node.js, AWS, Firebase, Laravel, and modern frontend technologies."
+  },
+  "skills": [
+    "Flutter",
+    "React",
+    "BLoC Architecture",
+    "REST APIs",
+
+    "Firebase",
+    "Dart",
+    "Node.js",
+    "TypeScript",
+    "Laravel",
+    "AWS EC2",
+    "S3"
+  ],
+  "experience": [
+    {
+      "role": "Software Developer",
+      "company": "SmartGlobal Domestic Worker Services LLC",
+      "duration": "Jan 2026 - Present",
+      "description": "Developing internal and client mobile applications using Flutter and Node.js APIs with BLoC architecture."
+    },
+    {
+      "role": "Freelance Mobile Developer",
+      "company": "SmartGlobal Domestic Worker Services LLC",
+      "duration": "Sep 2024 - Jan 2026",
+      "description": "Worked on scalable mobile apps with JSON API integrations and responsive UI."
+    },
+    {
+      "role": "Web Development Intern",
+      "company": "Qiyam Business Solutions",
+      "duration": "Jul 2024 - Sep 2024",
+      "description": "Built Laravel admin panel and integrated Firebase for real-time systems."
+    }
+  ],
+  "projects": [
+    {
+      "name": "LocalLink",
+      "description": "Hyperlocal chat app with GPS-based interactions and anonymous login.",
+      "tech": ["Flutter Web", "Firebase"],
+      "link": "https://www.locallink.fun"
+    }
+  ],
+  "apps": [
+    {
+      "name": "SmartGlobal Internal App",
+      "playstore": "https://play.google.com/store/apps/details?id=com.ess.smarttadbeer.ae",
+      "appstore": "https://apps.apple.com/ae/app/sg-staff/id6743707524"
+    },
+    {
+      "name": "SmartGlobal Client App",
+      "playstore": "https://play.google.com/store/apps/details?id=com.app.smarttadbeer.ae",
+      "appstore": "https://apps.apple.com/ae/app/smart-global/id6745770884"
+    }
+  ],
+  "cta": {
+    "primary": "Hire Me",
+    "secondary": "View Projects"
+  }
+}
