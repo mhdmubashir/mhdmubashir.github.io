@@ -18,7 +18,6 @@
     "React",
     "BLoC Architecture",
     "REST APIs",
-
     "Firebase",
     "Dart",
     "Node.js",
@@ -50,9 +49,46 @@
   "projects": [
     {
       "name": "LocalLink",
+      "policies": [
+        {
+          "type": "privacy-policy",
+          "urlname": "Privacy Policy",
+          "url": "https://mhdmubashir.github.io/{proejctName}/{policytype}",
+          "content": "# Privacy Policy – LocalLink\n\n**Last Updated:** May 2026\n\n## Introduction\n\nLocalLink is a privacy-first hyperlocal social networking application designed to help users connect with nearby communities in real time while maintaining temporary and privacy-focused interactions.\n\nThis Privacy Policy explains how LocalLink collects, uses, stores, and protects user information.\n\nBy using LocalLink, you agree to the practices described in this policy.\n\n---\n\n# Information We Collect\n\n## 1. Location Information\n\nLocalLink uses device location data to:\n\n* Discover nearby users within a local radius\n* Enable hyperlocal community chat rooms\n* Provide local feed content\n* Support emergency HELP alert functionality\n\nLocation data is used only while the app is active or when features requiring location access are enabled by the user.\n\n---\n\n## 2. Account Information\n\nUsers may use LocalLink anonymously without providing personal identity information.\n\nOptional account upgrade features may collect:\n\n* Email address\n* Password credentials\n\nThis information is used only for account recovery and authentication.\n\n---\n\n## 3. Device & Network Information\n\nLocalLink may collect limited network-related information including:\n\n* Wi-Fi SSID\n* Wi-Fi BSSID\n* Connectivity status\n\nThis is used to support nearby network-based matching and connectivity features.\n\n---\n\n# Ephemeral Data & Auto Deletion\n\nLocalLink is designed around temporary interactions.\n\nThe following content automatically expires and is permanently deleted after approximately 24 hours:\n\n* Private messages\n* Community chat messages\n* Feed posts\n* Temporary activity data\n\nWe do not provide permanent public social profiles or follower systems.\n\n---\n\n# How We Use Information\n\nCollected information is used to:\n\n* Operate nearby discovery systems\n* Enable real-time messaging\n* Deliver emergency alert functionality\n* Improve app stability and performance\n* Prevent abuse and moderate harmful content\n\n---\n\n# Content Moderation & Safety\n\nUsers may report inappropriate content or abuse.\n\nReported content may be reviewed by authorized moderators to maintain community safety and platform integrity.\n\nEmergency alert misuse may result in account restrictions or moderation actions.\n\n---\n\n# Third-Party Services\n\nLocalLink uses trusted third-party services including:\n\n* Firebase Authentication\n* Cloud Firestore\n* Google Play Services\n\nThese services may process limited technical information necessary for app functionality.\n\n---\n\n# Data Security\n\nWe implement reasonable technical and organizational safeguards to protect user information and maintain platform security.\n\nHowever, no online platform can guarantee absolute security.\n\n---\n\n# Children's Privacy\n\nLocalLink is not directed toward children under the age required by local digital consent laws.\n\nUsers who do not meet the minimum legal age requirement should not use the platform.\n\n---\n\n# Changes to This Policy\n\nWe may update this Privacy Policy periodically.\n\nUpdated versions will be published within the application or associated public pages.\n\n---\n\n# Contact Us\n\nFor privacy-related concerns or support:\n\n**Email:** [mubashirmuhammed547@gmail.com](mailto:mubashirmuhammed547@gmail.com)"
+        },
+        {
+          "type": "child-privacy-policy",
+          "urlname": "Child Privacy Policy",
+          "url": "https://mhdmubashir.github.io/{proejctName}/{policytype}",
+          "content": "# LocalLink Child Safety Standards & CSAE Policy\n\n**Last Updated:** May 2026\n\nLocalLink is committed to protecting children and preventing child sexual abuse and exploitation (CSAE) on our platform.\n\nWe maintain a zero-tolerance policy toward any form of child sexual abuse material, exploitation, grooming, trafficking, or harmful behavior involving minors.\n\n---\n\n# Prohibited Content & Behavior\n\nThe following are strictly prohibited on LocalLink:\n\n* Child sexual abuse material (CSAM)\n* Sexual exploitation of minors\n* Grooming or predatory behavior\n* Sexualized conversations involving minors\n* Threats, coercion, or exploitation targeting minors\n* Sharing or requesting exploitative content involving children\n\nAny violation may result in:\n\n* Immediate account suspension\n* Permanent account bans\n* Content removal\n* Reporting to appropriate legal authorities where required\n\n---\n\n# Reporting & Moderation\n\nUsers can report harmful or abusive content directly through moderation tools available within the platform.\n\nOur moderation systems and administrators review reports and take appropriate enforcement actions when necessary.\n\n---\n\n# Safety Measures\n\nLocalLink implements safety-focused systems including:\n\n* Content reporting tools\n* Account moderation controls\n* Community management systems\n* Emergency misuse prevention measures\n* Temporary content expiration\n\n---\n\n# Cooperation With Authorities\n\nWhere legally required, LocalLink may cooperate with law enforcement agencies and relevant child protection organizations regarding verified CSAE-related violations.\n\n---\n\n# Contact Information\n\nFor child safety concerns or abuse reports:\n\n**Email:** [mubashirmuhammed547@gmail.com](mailto:mubashirmuhammed547@gmail.com), all the required safety measures are under development"
+        }
+      ],
       "description": "Hyperlocal chat app with GPS-based interactions and anonymous login.",
-      "tech": ["Flutter Web", "Firebase"],
+      "tech": [
+        "Flutter Web",
+        "Firebase"
+      ],
       "link": "https://www.locallink.fun"
+    },
+    {
+      "name": "ExamEase",
+      "description": "An e-learning app that helps students prepare for exams.",
+      "policies": [
+        {
+          "type": "privacy-policy",
+          "urlname": "Privacy Policy",
+          "url": "https://mhdmubashir.github.io/{proejctName}/{policytype}",
+          "content": "# Privacy Policy\n\nLast updated: May 29, 2026\n\nWelcome to ExamEase's Privacy Policy page. We are committed to protecting the privacy of our test-takers and educators.\n\n## 1. Data Collection\nWe collect exam performance analytics and user authentication credentials safely.\n\n## 2. Security\nAll data is stored securely using industry-standard database encryption techniques."
+        }
+      ],
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "MongoDB",
+        "Redis",
+        "AWS"
+      ],
+      "link": "https://examease.in/"
     }
   ],
   "apps": [
