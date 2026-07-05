@@ -1,0 +1,92 @@
+{
+  "personal": {
+    "name": "Muhammed Mubashir",
+    "title": "Full Stack Developer | Software Engineer",
+    "tagline": "Building scalable mobile and web applications with performance and precision.",
+    "location": "Kerala, India / UAE",
+    "phone": "+91-9446027717",
+    "email": "mubashirmuhammed547@gmail.com",
+    "github": "https://github.com/mhdmubashir",
+    "linkedin": "https://www.linkedin.com/in/muhammed-mubashir-399070251/",
+    "portfolio": "https://yourdomain.com"
+  },
+  "about": {
+    "description": "Flutter Mobile Application Developer with strong problem-solving skills and a passion for building real-world applications. Experienced in Flutter, React, Node.js, AWS, Firebase, Laravel, and modern frontend technologies."
+  },
+  "skills": [
+    "Flutter",
+    "React",
+    "BLoC Architecture",
+    "REST APIs",
+    "Firebase",
+    "Dart",
+    "Node.js",
+    "TypeScript",
+    "Laravel",
+    "AWS EC2",
+    "S3"
+  ],
+  "experience": [
+    {
+      "role": "Software Developer",
+      "company": "SmartGlobal Domestic Worker Services LLC",
+      "duration": "Jan 2026 - Present",
+      "description": "Developing internal and client mobile applications using Flutter and Node.js APIs with BLoC architecture."
+    },
+    {
+      "role": "Freelance Mobile Developer",
+      "company": "SmartGlobal Domestic Worker Services LLC",
+      "duration": "Sep 2024 - Jan 2026",
+      "description": "Worked on scalable mobile apps with JSON API integrations and responsive UI."
+    },
+    {
+      "role": "Web Development Intern",
+      "company": "Qiyam Business Solutions",
+      "duration": "Jul 2024 - Sep 2024",
+      "description": "Built Laravel admin panel and integrated Firebase for real-time systems."
+    }
+  ],
+  "projects": [
+    {
+      "name": "ExamEase",
+      "description": "An e-learning app that helps students prepare for exams.",
+      "policies": [
+        {
+          "type": "privacy-policy",
+          "urlname": "Privacy Policy",
+          "url": "https://mhdmubashir.github.io/{proejctName}/{policytype}",
+          "content": "# Privacy Policy\n\nLast updated: May 29, 2026\n\nWelcome to ExamEase's Privacy Policy page. We are committed to protecting the privacy of our test-takers and educators.\n\n## 1. Data Collection\nWe collect exam performance analytics and user authentication credentials safely.\n\n## 2. Security\nAll data is stored securely using industry-standard database encryption techniques."
+        }
+      ],
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "MongoDB",
+        "Redis",
+        "AWS"
+      ],
+      "link": "https://examease.in/"
+    }
+  ],
+  "apps": [
+    {
+      "name": "SmartGlobal Internal App",
+      "playstore": "https://play.google.com/store/apps/details?id=com.ess.smarttadbeer.ae",
+      "appstore": "https://apps.apple.com/ae/app/sg-staff/id6743707524"
+    },
+    {
+      "name": "SmartGlobal Client App",
+      "playstore": "https://play.google.com/store/apps/details?id=com.app.smarttadbeer.ae",
+      "appstore": "https://apps.apple.com/ae/app/smart-global/id6745770884"
+    },
+    {
+      "name": "ExamEase Learning App",
+      "playstore": "https://play.google.com/store/apps/details?id=com.mubashir.examease",
+      "appstore": ""
+    }
+  ],
+  "cta": {
+    "primary": "Hire Me",
+    "secondary": "View Projects"
+  }
+}

@@ -1,0 +1,51 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 72px;
+}
+
+.content {
+  text-align: center;
+  max-width: 800px;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.05em;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--gray-dark);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.tagline {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.25rem;
+  }
+}
