@@ -4,6 +4,8 @@ import type { PortfolioData } from "@/types";
 
 const data = dataJson as PortfolioData;
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = "https://mhdmubashir.github.io"; // Replace with your actual deployed URL
 
