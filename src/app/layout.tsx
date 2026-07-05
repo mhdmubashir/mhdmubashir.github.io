@@ -7,7 +7,7 @@ const outfit = Outfit({
   variable: "--font-outfit",
 });
 
-const siteUrl = "https://yourdomain.com";
+const siteUrl = "https://mhdmubashir.github.io";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

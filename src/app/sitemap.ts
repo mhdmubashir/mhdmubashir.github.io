@@ -5,7 +5,7 @@ import type { PortfolioData } from "@/types";
 const data = dataJson as PortfolioData;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = "https://yourdomain.com"; // Replace with your actual deployed URL
+  const siteUrl = "https://mhdmubashir.github.io"; // Replace with your actual deployed URL
 
   const sitemapData: MetadataRoute.Sitemap = [
     {
