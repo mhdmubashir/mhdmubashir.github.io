@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #d1d5db; /* Grey background outside the banner */
+            background-color: #d1d5db;
+            /* Grey background outside the banner */
         }
 
         .og-container {
@@ -22,7 +24,7 @@
             height: 628px;
             background-color: #ffffff;
             /* Minimal Grid Checks Pattern */
-            background-image: 
+            background-image:
                 linear-gradient(to right, #f1f5f9 2px, transparent 2px),
                 linear-gradient(to bottom, #f1f5f9 2px, transparent 2px);
             background-size: 40px 40px;
@@ -38,8 +40,11 @@
         .og-container::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(255,255,255,0.8) 100%);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(255, 255, 255, 0.8) 100%);
             pointer-events: none;
         }
 
@@ -97,29 +102,33 @@
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
-        
+
         .badge::before {
             content: '';
             display: inline-block;
             width: 8px;
             height: 8px;
-            background-color: #22c55e; /* Green status dot */
+            background-color: #22c55e;
+            /* Green status dot */
             border-radius: 50%;
             margin-right: 10px;
         }
     </style>
 </head>
+
 <body>
     <div class="og-container">
         <!-- Text Content -->
         <div class="text-content">
             <div class="badge">Portfolio</div>
             <h1>Muhammed<br>Mubashir</h1>
-            <p>Full Stack Software Developer<br>Software Engineer</p>
+            <p>Full Stack Software Developer
+                <!-- <br>Software Engineer</p> -->
         </div>
-        
+
         <!-- Passport photo you linked -->
         <img class="passport-photo" src="passportsize_3.jpg" alt="Passport Photo">
     </div>
 </body>
+
 </html>
