@@ -50,6 +50,9 @@ export const metadata: Metadata = {
     description: "Portfolio of Muhammed Mubashir (thacharakkavil), software engineer and founder/full stack developer of ExamEase learning app.",
     images: [`${siteUrl}/og-image.png`],
   },
+  verification: {
+    google: "zcmbmoB_Sc1IBykHcNCTyAmU4mMx2N7IG9KFkBIxSvU",
+  },
 };
 
 export default function RootLayout({
