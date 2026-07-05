@@ -35,11 +35,20 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Muhammed Mubashir Portfolio",
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/og-image.png`,
+        width: 1200,
+        height: 628,
+        alt: "Muhammed Mubashir Portfolio Banner",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Muhammed Mubashir | Full Stack Developer | Software Engineer",
     description: "Portfolio of Muhammed Mubashir (thacharakkavil), software engineer and founder/full stack developer of ExamEase learning app.",
+    images: [`${siteUrl}/og-image.png`],
   },
 };
 

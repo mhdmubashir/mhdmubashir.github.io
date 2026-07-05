@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Image Generator</title>
+    <!-- Use Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d1d5db; /* Grey background outside the banner */
+        }
+
+        .og-container {
+            width: 1200px;
+            height: 628px;
+            background-color: #ffffff;
+            /* Minimal Grid Checks Pattern */
+            background-image: 
+                linear-gradient(to right, #f1f5f9 2px, transparent 2px),
+                linear-gradient(to bottom, #f1f5f9 2px, transparent 2px);
+            background-size: 40px 40px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            font-family: 'Outfit', sans-serif;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Subtle radial gradient for depth */
+        .og-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(255,255,255,0.8) 100%);
+            pointer-events: none;
+        }
+
+        .passport-photo {
+            position: absolute;
+            right: 120px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 320px;
+            height: 420px;
+            border-radius: 24px;
+            object-fit: cover;
+            border: 8px solid #ffffff;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1), 0 0 0 1px #e2e8f0;
+            z-index: 2;
+        }
+
+        .text-content {
+            position: absolute;
+            left: 120px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #0f172a;
+            z-index: 2;
+        }
+
+        .text-content h1 {
+            font-size: 84px;
+            margin: 0;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .text-content p {
+            font-size: 32px;
+            color: #475569;
+            margin-top: 16px;
+            font-weight: 500;
+            line-height: 1.4;
+            max-width: 600px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        .badge::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e; /* Green status dot */
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="og-container">
+        <!-- Text Content -->
+        <div class="text-content">
+            <div class="badge">Portfolio</div>
+            <h1>Muhammed<br>Mubashir</h1>
+            <p>Full Stack Software Developer<br>Software Engineer</p>
+        </div>
+        
+        <!-- Passport photo you linked -->
+        <img class="passport-photo" src="passportsize_3.jpg" alt="Passport Photo">
+    </div>
+</body>
+</html>
