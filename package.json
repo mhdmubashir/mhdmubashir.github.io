@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "assets": "bash scripts/build-assets.sh"
+    "assets": "bash scripts/build-assets.sh",
+    "posts": "bash scripts/build-posts.sh"
   },
   "dependencies": {
     "astro": "^7.3.3",

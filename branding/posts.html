@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Social posts — Muhammed Mubashir</title>
+<!--
+  One template, many posts. Open with a hash to pick a post + format and
+  screenshot at the matching size (see scripts/build-posts.sh):
+    #p01-portrait   1080 x 1350   Instagram feed / LinkedIn (4:5)
+    #p01-story      1080 x 1920   Instagram / LinkedIn story
+    #p01-landscape  1200 x 627    LinkedIn feed (landscape)
+    #c01-portrait   1080 x 1350   carousel slides (c01…c05)
+  Copy lives in POSTS below; captions in branding/posts/captions.md.
+-->
+<style>
+  @font-face { font-family: "IBM Plex Sans"; font-weight: 100 700; src: url("../src/assets/fonts/ibm-plex-sans-latin-wght-normal.woff2") format("woff2"); }
+  @font-face { font-family: "IBM Plex Mono"; src: url("../src/assets/fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Architects Daughter"; src: url("../src/assets/fonts/architects-daughter-latin-400-normal.woff2") format("woff2"); }
+
+  :root {
+    --paper: #f6f4ee; --paper-2: #efece4; --ink: #1d1c1a; --ink-2: #4a4843;
+    --graphite: #63605a; --stroke: #b9b5aa; --stroke-2: #d9d5cb; --mark: #b4402e;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #888; font-family: "IBM Plex Sans", sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .frame { display: none; position: relative; overflow: hidden; background: var(--paper); }
+  .frame:target { display: flex; flex-direction: column; }
+
+  /* formats */
+  .portrait  { width: 1080px; height: 1350px; padding: 96px 96px 88px 150px; }
+  .story     { width: 1080px; height: 1920px; padding: 200px 96px 180px 150px; }
+  .landscape { width: 1200px; height: 627px;  padding: 56px 72px 48px 120px; }
+
+  .rule { position: absolute; top: 0; bottom: 0; left: 104px; width: 2px; background: var(--stroke-2); }
+  .landscape .rule { left: 84px; }
+
+  .mono { font-family: "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); }
+  .hand { font-family: "Architects Daughter", cursive; color: var(--ink-2); }
+
+  .top { display: flex; justify-content: space-between; align-items: center; font-size: 26px; }
+  .top svg { width: 44px; height: 44px; }
+  .landscape .top { font-size: 20px; }
+  .landscape .top svg { width: 34px; height: 34px; }
+
+  .content { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 28px; padding-block: 48px 32px; min-height: 0; }
+  .landscape .content { gap: 16px; }
+
+  .lead { font-size: 44px; line-height: 1.1; position: relative; display: inline-block; align-self: flex-start; }
+  .lead .arrow { position: absolute; left: -68px; bottom: -44px; width: 60px; color: var(--graphite); transform: scaleX(-1); }
+  .landscape .lead { font-size: 30px; }
+  .landscape .lead .arrow { width: 40px; left: -48px; bottom: -30px; }
+
+  h1 { margin: 0; font-weight: 500; letter-spacing: -.035em; line-height: 1.02; font-size: 96px; text-wrap: balance; max-width: 820px; }
+  h1.s { font-size: 80px; }
+  h1.xs { font-size: 64px; }
+  .landscape h1 { font-size: 60px; max-width: 900px; }
+  .landscape h1.s { font-size: 52px; }
+  .landscape h1.xs { font-size: 44px; }
+
+  .sub { font-size: 38px; font-weight: 500; color: var(--ink); margin: 0; }
+  .body { font-size: 34px; line-height: 1.45; color: var(--ink-2); margin: 0; max-width: 800px; text-wrap: pretty; }
+  .landscape .sub { font-size: 26px; }
+  .landscape .body { font-size: 22px; max-width: 900px; }
+
+  /* checklist / two-column list */
+  .list { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 48px; max-width: 840px; }
+  .list li { position: relative; padding: 8px 0 8px 46px; font-size: 30px; border-bottom: 2px dotted var(--stroke-2); }
+  .list li::before { content: ""; position: absolute; left: 0; top: 18px; width: 28px; height: 28px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M3 8.5 L6.5 12 L13.5 4' fill='none' stroke='%2363605a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat center / contain; }
+  .list.one { grid-template-columns: 1fr; max-width: 760px; }
+  .list.one li { font-size: 34px; }
+  .group { font-family: "IBM Plex Mono", monospace; font-size: 22px; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); margin: 6px 0 -12px; }
+
+  /* underline / circle */
+  .u { position: relative; display: inline-block; }
+  .u svg { position: absolute; left: -.05em; right: -.05em; bottom: -.1em; width: calc(100% + .1em); height: .26em; color: var(--ink); }
+  .circled { position: relative; display: inline-block; padding: 0 .1em; }
+  .circled svg { position: absolute; inset: -.26em -.4em -.22em -.36em; width: calc(100% + .76em); height: calc(100% + .48em); color: var(--mark); }
+
+  .note { font-size: 36px; margin-top: 8px; }
+  .landscape .note { font-size: 26px; }
+
+  .bottom { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 28px; border-top: 2px solid var(--stroke-2); font-size: 24px; }
+  .landscape .bottom { padding-top: 16px; font-size: 18px; }
+  .bottom .divider { position: absolute; left: 150px; right: 96px; height: 8px; color: var(--stroke); }
+
+  .portraitfig { position: absolute; right: 96px; top: 190px; padding: 12px; border: 3px solid var(--ink); background: var(--paper-2);
+                 border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; transform: rotate(1.8deg); }
+  .portraitfig img { display: block; width: 260px; height: 260px; border-radius: 3px; filter: grayscale(.15) contrast(1.02); }
+  .story .portraitfig { top: 300px; }
+  .landscape .portraitfig { right: 72px; top: 120px; }
+  .landscape .portraitfig img { width: 180px; height: 180px; }
+
+  .big { font-size: 44px; font-weight: 500; letter-spacing: -.02em; line-height: 1.15; margin: 0; overflow-wrap: anywhere; }
+  .landscape .big { font-size: 36px; }
+</style>
+</head>
+<body>
+
+<template id="tpl">
+  <div class="rule"></div>
+  <div class="top">
+    <span class="mono label"></span>
+    <svg viewBox="0 0 64 64" fill="none" stroke="#1d1c1a" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M13 52 L15.5 13 L32 40 L48.5 12.5 L51 52" stroke-width="5"/>
+      <path d="M11.5 51.5 L14 14.5 L32 42 L50 14 L52.5 51" stroke-width="1.6" opacity=".35"/>
+    </svg>
+  </div>
+  <div class="content"></div>
+  <div class="bottom">
+    <span class="mono">mhdmubashir.github.io</span>
+    <span class="mono page"></span>
+  </div>
+</template>
+
+<script>
+  const UNDERLINE = `<svg viewBox="0 0 200 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5.5 C 40 3.2, 80 6.8, 120 4.4 S 170 5.6, 198 3.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>`;
+  const CIRCLE = `<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M28 8 C 70 -3, 165 -1, 188 18 C 205 33, 178 55, 110 57 C 40 59, 2 48, 6 30 C 9 17, 38 9, 70 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>`;
+  const ARROW = `<svg class="arrow" viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6 C 14 9, 26 18, 40 34"/><path d="M31 33 L40 34 L38 25"/></svg>`;
+  const u = (t) => `<span class="u">${t}${UNDERLINE}</span>`;
+  const circ = (t) => `<span class="circled">${t}${CIRCLE}</span>`;
+  const list = (items, cls = "") => `<ul class="list ${cls}">${items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
+
+  // ---- Post copy. Every fact comes from portfolioData.json or me/data.md. ----
+  const POSTS = {
+    p01: {
+      label: "Introduction",
+      portrait: true,
+      html: `
+        <div class="lead hand">hello, I'm${ARROW}</div>
+        <h1>Muhammed Mubashir</h1>
+        <p class="sub">Full Stack Software Developer</p>
+        <p class="body">Flutter · Node.js · TypeScript · Next.js · MongoDB · Redis · AWS · Docker</p>
+        <p class="note hand">Kerala, India / UAE</p>`,
+    },
+    p02: {
+      label: "Note 02 — Toolbox",
+      html: `
+        <h1 class="s">What I build with</h1>
+        <div class="group">Mobile</div>
+        ${list(["Flutter / Dart", "BLoC architecture"])}
+        <div class="group">Backend &amp; data</div>
+        ${list(["Node.js + TypeScript", "REST APIs", "MongoDB", "Redis", "Firebase", "Authentication"])}
+        <div class="group">Cloud &amp; infra</div>
+        ${list(["AWS + S3", "Docker", "Nginx", "Linux"])}
+        <div class="group">Web</div>
+        ${list(["Next.js / React", "Laravel"])}
+        <p class="note hand">in no particular order</p>`,
+    },
+    p03: {
+      label: "Fig. 03 — Project",
+      html: `
+        <div class="lead hand">designed, built, deployed${ARROW}</div>
+        <h1>${u("ExamEase")}</h1>
+        <p class="sub">An EdTech platform for exam preparation</p>
+        ${list(["Flutter app", "Node.js / TypeScript backend", "MongoDB + Redis", "AWS + S3 storage", "Mock exams &amp; PDFs", "Offline mode", "Notifications", "Deep linking", "Admin tools", "Authentication"])}
+        <p class="note hand">live at examease.in</p>`,
+    },
+    p04: {
+      label: "Fig. 04 — Game",
+      html: `
+        <div class="lead hand">next up${ARROW}</div>
+        <h1>Unjam</h1>
+        <p class="sub">A game built with Flutter Flame</p>
+        <p class="body">In closed testing now. Launching ${circ("October")}.</p>
+        <p class="note hand">unjam.in</p>`,
+    },
+    p05: {
+      label: "Note 05 — Home server",
+      html: `
+        <h1 class="s">An old HP laptop is my cloud.</h1>
+        <p class="body">unjam.in runs from a home server. Coolify handles deploys, a Cloudflare Tunnel puts it on the internet, Docker runs everything else.</p>
+        <p class="note hand">still running</p>`,
+    },
+    p06: {
+      label: "Note 06 — Principle",
+      html: `
+        <h1 class="s">Understand what's ${u("underneath")} the abstraction.</h1>
+        <p class="body">Not just which library to use — how it actually works. Same rule for Docker, NFC, microcontrollers, networking, or a cloud service.</p>
+        <p class="note hand">experiment first, then read</p>`,
+    },
+    p07: {
+      label: "Note 07 — Direction",
+      html: `
+        <h1 class="s">Going deeper, not wider.</h1>
+        <p class="body">Next stage: fundamentals.</p>
+        ${list(["Data structures &amp; algorithms", "Backend architecture", "Databases", "Operating systems", "Networking", "System design", "Testing", "Production reliability"])}`,
+    },
+    p08: {
+      label: "Note 08 — AI in the loop",
+      html: `
+        <h1 class="s">AI is part of my workflow — not a code vending machine.</h1>
+        <p class="body">Architecture, refactoring, debugging, documentation, research, rapid prototyping. The interesting question is how the engineer's job changes.</p>`,
+    },
+    p09: {
+      label: "Note 09 — Contact",
+      portrait: true,
+      html: `
+        <div class="lead hand">say hello${ARROW}</div>
+        <h1 class="s">Let's build something.</h1>
+        <p class="big">mubashirmuhammed547@gmail.com</p>
+        <p class="body">github.com/mhdmubashir<br>mhdmubashir.github.io</p>
+        <p class="note hand">Kerala, India / UAE</p>`,
+    },
+
+    // ---- Carousel: ExamEase, under the hood (5 slides) ----
+    c01: { label: "Carousel — 1 / 5", page: "swipe →", html: `
+        <div class="lead hand">fig. 03${ARROW}</div>
+        <h1>ExamEase,<br>under the hood</h1>
+        <p class="body">One person, the whole stack: app, backend, infrastructure, admin.</p>` },
+    c02: { label: "Carousel — 2 / 5", html: `
+        <div class="group">The app</div>
+        <h1 class="s">Flutter</h1>
+        ${list(["Mock examinations", "Offline functionality", "PDFs", "Notifications", "Deep linking", "Authentication"], "one")}` },
+    c03: { label: "Carousel — 3 / 5", html: `
+        <div class="group">The backend</div>
+        <h1 class="s">Node.js + TypeScript</h1>
+        ${list(["REST APIs", "Authentication", "MongoDB", "Redis", "Admin systems"], "one")}` },
+    c04: { label: "Carousel — 4 / 5", html: `
+        <div class="group">The infrastructure</div>
+        <h1 class="s">AWS</h1>
+        ${list(["S3 storage", "Production deployment", "Notifications", "Monitoring what breaks"], "one")}` },
+    c05: { label: "Carousel — 5 / 5", page: "end", html: `
+        <h1 class="s">The real lesson: ship the ${u("whole")} lifecycle.</h1>
+        <p class="body">Not just a UI. Design, build, deploy, and keep it running.</p>
+        <p class="note hand">examease.in</p>` },
+  };
+
+  const FORMATS = ["portrait", "story", "landscape"];
+  const tpl = document.getElementById("tpl");
+  const ids = Object.keys(POSTS);
+  for (const id of ids) {
+    const post = POSTS[id];
+    for (const fmt of FORMATS) {
+      const f = document.createElement("div");
+      f.className = `frame ${fmt}`;
+      f.id = `${id}-${fmt}`;
+      f.append(tpl.content.cloneNode(true));
+      f.querySelector(".label").textContent = post.label;
+      f.querySelector(".content").innerHTML = post.html;
+      f.querySelector(".page").textContent = post.page ?? (id.startsWith("p") ? `${id.slice(1)} / 09` : "");
+      if (post.portrait) {
+        f.insertAdjacentHTML("beforeend",
+          `<figure class="portraitfig" style="margin:0"><img src="../src/assets/portrait.jpg" alt=""></figure>`);
+      }
+      document.body.append(f);
+    }
+  }
+</script>
+</body>
+</html>

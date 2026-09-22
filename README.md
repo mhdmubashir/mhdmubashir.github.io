@@ -23,14 +23,15 @@ Site-wide metadata (URL, titles, descriptions, keywords, verification) lives in
 
 ## Brand assets
 
-Sources in `branding/` (monogram SVG, OG/social templates). Regenerate every
-raster export (favicons, app icons, OG image, LinkedIn cover, avatar) with:
+Sources in `branding/` (monogram SVG, OG/social templates, post templates).
+Brand rules in `branding/BRAND.md`, post captions in `branding/posts/captions.md`.
 
 ```bash
-npm run assets
+npm run assets   # favicons, app icons, OG image, GitHub preview, LinkedIn cover, avatar
+npm run posts    # Instagram / LinkedIn post graphics, stories, carousel -> branding/export/posts
 ```
 
-Requires `rsvg-convert` (librsvg) and Google Chrome on the machine.
+Requires `rsvg-convert` (librsvg), ImageMagick and Google Chrome on the machine.
 
 ## Deploy
 

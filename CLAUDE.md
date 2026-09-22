@@ -14,9 +14,10 @@ npm run check    # astro check — TypeScript + template diagnostics (CI runs th
 npm run build    # static output in ./dist (this is what CI deploys)
 npm run preview  # serve ./dist
 npm run assets   # regenerate favicons, app icons, OG image, LinkedIn cover, avatar from ./branding
+npm run posts    # render social post graphics from branding/posts.html -> branding/export/posts
 ```
 
-`npm run assets` needs `rsvg-convert`, ImageMagick `magick`, and Google Chrome (headless screenshots of `branding/social.html`). Run it whenever `branding/*.svg`, `branding/social.html`, or `src/assets/portrait.jpg` changes; outputs land in `public/` and `branding/export/`.
+Both asset scripts need `rsvg-convert`, ImageMagick `magick`, and Google Chrome (headless screenshots of `branding/social.html` / `branding/posts.html`). Run `assets` whenever `branding/*.svg`, `branding/social.html`, or `src/assets/portrait.jpg` changes; run `posts` after editing the `POSTS` object in `branding/posts.html`. Post copy must stay grounded in `me/data.md` or the site — see `branding/BRAND.md`; captions live in `branding/posts/captions.md`.
 
 ## Deployment
 
