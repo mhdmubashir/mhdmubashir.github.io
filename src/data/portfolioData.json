@@ -11,7 +11,73 @@
     "portfolio": "https://yourdomain.com"
   },
   "about": {
-    "description": "Flutter Mobile Application Developer with strong problem-solving skills and a passion for building real-world applications. Experienced in Flutter, React, Node.js, AWS, Firebase, Laravel, and modern frontend technologies."
+    "description": "Early-career software engineer and product builder from Kerala, India, working between India and the UAE. Strong mobile foundation in Flutter, growing full-stack and infrastructure experience with Node.js, TypeScript, MongoDB, Redis, AWS and Docker, and an unusually broad interest in how software meets cloud systems, networks, hardware and AI.",
+    "education": {
+      "degree": "B.Voc in Mobile Application Development",
+      "institution": "University of Calicut",
+      "campus": "Amal College, Nilambur"
+    },
+    "story": [
+      {
+        "heading": "Where I started",
+        "paragraphs": [
+          "I'm Muhammed Mubashir (also known online as thacharakkavil), a software engineer from Kerala, India, with hands-on experience across mobile applications, full-stack web development, backend systems, cloud infrastructure, deployment, and emerging technologies.",
+          "My technical journey began with mobile application development in Flutter. From there it kept widening: backend engineering, web applications, servers, cloud infrastructure, networking, security, IoT, embedded systems, and AI-assisted software development."
+        ]
+      },
+      {
+        "heading": "Education",
+        "paragraphs": [
+          "I completed a B.Voc in Mobile Application Development from the University of Calicut, studying at Amal College, Nilambur. Most of my practical engineering knowledge, though, came from building real projects, reading documentation, debugging production problems, experimenting, and learning independently."
+        ]
+      },
+      {
+        "heading": "Work",
+        "paragraphs": [
+          "Professionally I've worked in the UAE technology environment, including software development for SmartGlobal Domestic Worker Services LLC in Dubai, where I built internal and client mobile applications with Flutter and Node.js APIs.",
+          "I later joined First Numismatic Tech Consultants FZCO / Aion Synapse as a Junior Software Engineer and Full-Stack Developer, working across production websites, portals, forms, APIs, cloud services, security-related work, deployment, performance optimisation, and internal technical initiatives."
+        ]
+      },
+      {
+        "heading": "What I work with",
+        "paragraphs": [
+          "My strongest foundation today is Flutter and Dart, Node.js, TypeScript, Next.js, REST APIs, MongoDB, Redis, Firebase, AWS, Docker, Nginx, Linux, authentication systems, cloud deployment, and production application architecture.",
+          "I've also worked with Laravel and PHP, JavaScript, React, SQL and MySQL, Git, Cloudflare, Google OAuth, Firebase Cloud Messaging, WebSockets, and the infrastructure around them."
+        ]
+      },
+      {
+        "heading": "ExamEase",
+        "paragraphs": [
+          "ExamEase is the project that shaped me most: an EdTech platform for exam preparation that I designed, developed, deployed, and continue to evolve. It is far more than a portfolio UI. There is a Flutter application, a Node.js and TypeScript backend, authentication, MongoDB, Redis, AWS infrastructure with S3 storage, notifications, offline functionality, PDFs, mock examinations, admin systems, deep linking, and production deployment.",
+          "Building it gave me experience with the complete lifecycle of a software product rather than isolated frontend work. It is live at examease.in and on Google Play."
+        ]
+      },
+      {
+        "heading": "Unjam",
+        "paragraphs": [
+          "Unjam is a game built with the Flutter Flame engine. It is in closed testing and launches on Google Play in October 2026. Its website, unjam.in, runs on my home server, an old HP laptop, deployed with Coolify and exposed through a Cloudflare Tunnel."
+        ]
+      },
+      {
+        "heading": "Beyond apps",
+        "paragraphs": [
+          "More recently I've been exploring areas outside conventional application development: home servers, Linux administration, Docker, Cloudflare Tunnels, networking, RFID and NFC systems, ESP32 and other microcontrollers, electronics, 3D printing, game development, cybersecurity concepts, and physical-digital product ideas.",
+          "What connects all of it is a wish to understand how systems work underneath the abstraction, rather than only knowing which library or framework to reach for. When I meet something unfamiliar, whether it is Docker, NFC, an AVR microcontroller, a 3D printer, a game engine, or a cloud service, my instinct is to experiment with it rather than only read about it."
+        ]
+      },
+      {
+        "heading": "AI in the workflow",
+        "paragraphs": [
+          "I use modern AI development tools as part of everyday engineering, not as a code vending machine: for architecture, refactoring, UI and UX work, debugging, research, documentation, automation, and rapid prototyping. I'm interested in how the role of a software engineer changes as these systems become a normal part of the workflow."
+        ]
+      },
+      {
+        "heading": "What's next",
+        "paragraphs": [
+          "Breadth has been my advantage and my biggest risk. The next stage is less about learning another ten technologies and more about becoming exceptionally strong in the fundamentals: data structures and algorithms, backend architecture, databases, operating systems, networking, debugging, system design, testing, security, and production reliability. Deeper, not wider."
+        ]
+      }
+    ]
   },
   "skills": [
     "Flutter",
@@ -28,10 +94,16 @@
   ],
   "experience": [
     {
+      "role": "Junior Software Engineer / Full-Stack Developer",
+      "company": "First Numismatic Tech Consultants FZCO / Aion Synapse",
+      "duration": "2026 - Present",
+      "description": "Production websites, portals, forms and APIs; cloud services, security-related work, deployment, performance optimisation and internal technical initiatives."
+    },
+    {
       "role": "Software Developer",
       "company": "SmartGlobal Domestic Worker Services LLC",
-      "duration": "Jan 2026 - Present",
-      "description": "Developing internal and client mobile applications using Flutter and Node.js APIs with BLoC architecture."
+      "duration": "Jan 2026 - 2026",
+      "description": "Developed internal and client mobile applications using Flutter and Node.js APIs with BLoC architecture."
     },
     {
       "role": "Freelance Mobile Developer",
@@ -100,5 +172,31 @@
   "cta": {
     "primary": "Hire Me",
     "secondary": "View Projects"
-  }
+  },
+  "faq": [
+    {
+      "question": "Who is Muhammed Mubashir?",
+      "answer": "Muhammed Mubashir (also known as thacharakkavil) is a full stack software developer from Kerala, India, working between India and the UAE. He builds mobile apps with Flutter and backends with Node.js and TypeScript, and is the founder and developer of the ExamEase learning app."
+    },
+    {
+      "question": "What is ExamEase?",
+      "answer": "ExamEase is an EdTech platform that helps students prepare for exams, designed, built and run by Muhammed Mubashir. It has a Flutter app and a Node.js/TypeScript backend with MongoDB, Redis and AWS, and includes mock examinations, PDFs, offline mode and notifications. It is live at examease.in and available on Google Play."
+    },
+    {
+      "question": "What is Unjam?",
+      "answer": "Unjam is a game by Muhammed Mubashir built with the Flutter Flame engine. It is in closed testing and launches on Google Play (com.mubashir.unjam) in October 2026. Its website is unjam.in."
+    },
+    {
+      "question": "What technologies does Muhammed Mubashir work with?",
+      "answer": "Flutter and Dart, Node.js, TypeScript, Next.js, React, REST APIs, MongoDB, Redis, Firebase, AWS (EC2, S3), Docker, Nginx, Linux, Laravel and PHP, Cloudflare, and authentication systems. He also experiments with home servers, ESP32 microcontrollers, RFID/NFC and 3D printing."
+    },
+    {
+      "question": "Where is Muhammed Mubashir based?",
+      "answer": "Kerala, India, with professional work in the UAE (Dubai)."
+    },
+    {
+      "question": "How can I contact Muhammed Mubashir?",
+      "answer": "By email at mubashirmuhammed547@gmail.com, on LinkedIn, on GitHub as mhdmubashir, or via WhatsApp using the link on this site."
+    }
+  ]
 }

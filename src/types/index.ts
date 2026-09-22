@@ -10,8 +10,28 @@ export interface PersonalData {
   portfolio: string;
 }
 
+export interface EducationData {
+  degree: string;
+  institution: string;
+  campus?: string;
+}
+
+export interface StorySection {
+  heading: string;
+  paragraphs: string[];
+}
+
 export interface AboutData {
+  /** Short summary shown on the home page and used as the About page description. */
   description: string;
+  education: EducationData;
+  /** Long-form bio rendered on /about, one section per heading. */
+  story: StorySection[];
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
 }
 
 export interface ExperienceData {
@@ -55,4 +75,5 @@ export interface PortfolioData {
   projects: ProjectData[];
   apps: AppData[];
   cta: CTAData;
+  faq: FaqItem[];
 }

@@ -27,8 +27,12 @@ export const sections = [
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "apps", label: "Apps" },
+  { id: "faq", label: "FAQ" },
   { id: "contact", label: "Contact" },
 ] as const;
+
+/** Static pages other than the home page, for sitemap and nav. */
+export const staticPages = [{ path: "/about", label: "About" }] as const;
 
 export type SectionId = (typeof sections)[number]["id"];
 

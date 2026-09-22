@@ -1,0 +1,24 @@
+# Muhammed Mubashir
+
+> Full stack software developer from Kerala, India, working between India and the UAE. Also known online as "thacharakkavil". Founder and developer of the ExamEase learning app. Builds mobile apps with Flutter and backends with Node.js/TypeScript, MongoDB, Redis and AWS.
+
+Site: https://mhdmubashir.github.io
+
+## Pages
+
+- [Home](https://mhdmubashir.github.io/): overview — about, skills, experience, projects, apps, FAQ, contact
+- [About](https://mhdmubashir.github.io/about): full background, education, work history, stack, projects, interests
+- [ExamEase privacy policy](https://mhdmubashir.github.io/policies/examease/privacy-policy)
+
+## Key facts
+
+- Name: Muhammed Mubashir (thacharakkavil)
+- Role: Full Stack Software Developer; currently Junior Software Engineer / Full-Stack Developer at First Numismatic Tech Consultants FZCO / Aion Synapse (UAE)
+- Previously: Software Developer and Freelance Mobile Developer at SmartGlobal Domestic Worker Services LLC (Dubai); Web Development Intern at Qiyam Business Solutions
+- Education: B.Voc in Mobile Application Development, University of Calicut (Amal College, Nilambur)
+- Location: Kerala, India / UAE
+- Core stack: Flutter, Dart, Node.js, TypeScript, Next.js, React, REST APIs, MongoDB, Redis, Firebase, AWS (EC2, S3), Docker, Nginx, Linux, Laravel
+- Projects: ExamEase (EdTech, https://examease.in, Google Play id com.mubashir.examease); Unjam (game, Flutter Flame, https://unjam.in, Google Play id com.mubashir.unjam, launching October 2026)
+- Apps shipped: SmartGlobal Internal App, SmartGlobal Client App (Play Store + App Store), ExamEase Learning App (Play Store)
+- Interests: home servers, Linux, Docker, Cloudflare Tunnels, networking, RFID/NFC, ESP32 microcontrollers, electronics, 3D printing, game development, AI-assisted development
+- Contact: mubashirmuhammed547@gmail.com · https://github.com/mhdmubashir · https://www.linkedin.com/in/muhammed-mubashir-399070251/

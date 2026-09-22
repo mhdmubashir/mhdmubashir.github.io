@@ -12,20 +12,49 @@ import portrait from "@/assets/portrait.jpg";
 import { data, whatsappUrl } from "@/lib/content";
 import { site } from "@/lib/site";
 
-const { personal, about, skills, experience, projects, apps, cta } = data;
+const { personal, about, skills, experience, projects, apps, cta, faq } = data;
+
+const currentRole = experience[0];
 
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${site.url}/#person`,
   name: personal.name,
   additionalName: site.additionalName,
+  alternateName: site.additionalName,
+  description: about.description,
   url: site.url,
+  mainEntityOfPage: site.url,
   image: `${site.url}/og-image.png`,
   jobTitle: site.jobTitle,
   email: `mailto:${personal.email}`,
   telephone: personal.phone,
-  worksFor: { "@type": "Organization", name: site.worksFor },
+  address: { "@type": "PostalAddress", addressRegion: "Kerala", addressCountry: "IN" },
+  homeLocation: { "@type": "Place", name: "Kerala, India" },
+  workLocation: { "@type": "Place", name: "United Arab Emirates" },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: about.education.institution,
+    ...(about.education.campus ? { department: { "@type": "Organization", name: about.education.campus } } : {}),
+  },
+  worksFor: [
+    { "@type": "Organization", name: currentRole.company },
+    { "@type": "Organization", name: site.worksFor, url: "https://examease.in/" },
+  ],
+  knowsAbout: skills,
   sameAs: [personal.github, personal.linkedin],
+  subjectOf: { "@type": "AboutPage", url: `${site.url}/about` },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
 };
 
 const webSiteJsonLd = {
@@ -37,7 +66,7 @@ const webSiteJsonLd = {
 };
 ---
 
-<BaseLayout path="/" jsonLd={[personJsonLd, webSiteJsonLd]}>
+<BaseLayout path="/" jsonLd={[personJsonLd, webSiteJsonLd, faqJsonLd]}>
   <div class="page notebook">
     <!-- 00 · Hero -->
     <section id="top" class="hero" aria-labelledby="hero-title">
@@ -70,8 +99,9 @@ const webSiteJsonLd = {
     </section>
 
     <!-- 01 · About -->
-    <Section id="about" number="01" title="About Me">
+    <Section id="about" number="01" title="About Me" note="short version">
       <p class="measure about">{about.description}</p>
+      <p class="more"><a class="pencil-link" href="/about">Read the full story &rarr;</a></p>
     </Section>
 
     <!-- 02 · Skills -->
@@ -102,8 +132,22 @@ const webSiteJsonLd = {
       </ul>
     </Section>
 
-    <!-- 06 · Contact -->
-    <Section id="contact" number="06" title="Contact">
+    <!-- 06 · FAQ -->
+    <Section id="faq" number="06" title="Questions, answered">
+      <dl class="faq">
+        {
+          faq.map((item) => (
+            <div>
+              <dt>{item.question}</dt>
+              <dd class="measure">{item.answer}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </Section>
+
+    <!-- 07 · Contact -->
+    <Section id="contact" number="07" title="Contact">
       <dl class="contact">
         <div>
           <dt class="mono">Email</dt>
@@ -227,6 +271,31 @@ const webSiteJsonLd = {
     font-size: var(--text-lg);
     line-height: 1.55;
     color: var(--ink);
+  }
+  .more {
+    margin-top: var(--space-4);
+    font-weight: 500;
+  }
+
+  .faq {
+    max-width: 52rem;
+  }
+  .faq > div {
+    padding-block: var(--space-4);
+    border-top: 1px dashed var(--stroke-2);
+  }
+  .faq > div:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .faq dt {
+    font-weight: 500;
+    font-size: var(--text-base);
+    margin-bottom: var(--space-2);
+  }
+  .faq dd {
+    margin: 0;
+    color: var(--ink-2);
   }
 
   .skills {

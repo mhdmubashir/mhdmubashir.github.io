@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { allPolicies, policyPath } from "@/lib/content";
+import { allPolicies, policyPath, staticPages } from "@/lib/content";
 import { absoluteUrl } from "@/lib/site";
 
 /**
@@ -12,6 +12,7 @@ export const GET: APIRoute = () => {
 
   const entries: { loc: string; changefreq: string; priority: string }[] = [
     { loc: absoluteUrl("/"), changefreq: "monthly", priority: "1.0" },
+    ...staticPages.map((p) => ({ loc: absoluteUrl(p.path), changefreq: "monthly", priority: "0.9" })),
     ...allPolicies().map(({ project, policy }) => ({
       loc: absoluteUrl(policyPath(project, policy)),
       changefreq: "yearly",

@@ -1,0 +1,210 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "@/components/sketch/Divider.astro";
+import Annotation from "@/components/sketch/Annotation.astro";
+import portrait from "@/assets/portrait.jpg";
+import { data } from "@/lib/content";
+import { site, absoluteUrl } from "@/lib/site";
+
+const { personal, about } = data;
+const path = "/about";
+const title = `About ${personal.name}`;
+const description = about.description;
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: title,
+    url: absoluteUrl(path),
+    description,
+    isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
+    mainEntity: { "@type": "Person", name: personal.name, url: site.url },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Portfolio", item: site.url },
+      { "@type": "ListItem", position: 2, name: "About", item: absoluteUrl(path) },
+    ],
+  },
+];
+---
+
+<BaseLayout {title} {description} {path} ogType="article" {jsonLd}>
+  <div class="page doc">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a class="pencil-link" href="/">Portfolio</a></li>
+        <li aria-current="page">About</li>
+      </ol>
+    </nav>
+
+    <header class="head">
+      <div>
+        <p class="lead-in"><Annotation arrow="down-left">the longer version</Annotation></p>
+        <h1>About {personal.name}</h1>
+        <p class="summary">{about.description}</p>
+        <dl class="facts">
+          <div><dt class="mono">Role</dt><dd>{personal.title}</dd></div>
+          <div><dt class="mono">Based in</dt><dd>{personal.location}</dd></div>
+          <div>
+            <dt class="mono">Education</dt>
+            <dd>{about.education.degree}, {about.education.institution}{about.education.campus && ` (${about.education.campus})`}</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="portrait">
+        <Image src={portrait} alt={`Portrait of ${personal.name}`} width={180} height={180} densities={[1, 2]} format="webp" loading="eager" />
+        <figcaption class="hand">fig. 1 — {personal.location}</figcaption>
+      </figure>
+    </header>
+
+    <Divider />
+
+    <article class="story">
+      {
+        about.story.map((section, i) => (
+          <section aria-labelledby={`story-${i}`}>
+            <p class="mono num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</p>
+            <div>
+              <h2 id={`story-${i}`}>{section.heading}</h2>
+              {section.paragraphs.map((p) => <p>{p}</p>)}
+            </div>
+          </section>
+        ))
+      }
+    </article>
+
+    <Divider label="end of notes" />
+    <p class="back">
+      <a class="btn btn-primary" href="/#contact">Get in touch</a>
+      <a class="btn" href="/#projects">See projects</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .doc {
+    max-width: 52rem;
+    padding-block: var(--space-8) var(--space-12);
+  }
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    margin-bottom: var(--space-8);
+  }
+  .crumbs li + li::before {
+    content: "/";
+    margin-right: 0.4rem;
+    color: var(--stroke);
+  }
+  .crumbs a {
+    color: var(--ink-2);
+  }
+
+  .head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+    align-items: start;
+    padding-bottom: var(--space-8);
+  }
+  .lead-in {
+    margin-bottom: var(--space-3);
+    padding-left: 2.6rem;
+  }
+  h1 {
+    font-size: var(--text-2xl);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-4);
+  }
+  .summary {
+    font-size: var(--text-lg);
+    color: var(--ink);
+    max-width: var(--measure);
+    margin-bottom: var(--space-6);
+  }
+  .facts {
+    display: grid;
+    gap: var(--space-3);
+  }
+  .facts dd {
+    margin: 0.1rem 0 0;
+    font-weight: 500;
+  }
+
+  .portrait {
+    margin: 0;
+    justify-self: start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: 0.55rem;
+    border: 1.5px solid var(--ink);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    transform: rotate(1.4deg);
+    background: var(--paper-2);
+  }
+  .portrait img {
+    border-radius: 2px;
+    filter: grayscale(0.15) contrast(1.02);
+  }
+  .portrait figcaption {
+    font-size: 0.95rem;
+    color: var(--graphite);
+  }
+  @media (min-width: 48rem) {
+    .head {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-12);
+    }
+    .portrait {
+      justify-self: end;
+      margin-top: var(--space-6);
+    }
+  }
+
+  .story {
+    padding-block: var(--space-8);
+  }
+  .story section {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: var(--space-4);
+    padding-block: var(--space-6);
+    border-top: 1px dashed var(--stroke-2);
+  }
+  .story section:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .num {
+    padding-top: 0.45rem;
+  }
+  .story h2 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+  }
+  .story p + p {
+    margin-top: var(--space-4);
+  }
+  .story div > p {
+    color: var(--ink-2);
+    max-width: var(--measure);
+  }
+  .back {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+  }
+</style>

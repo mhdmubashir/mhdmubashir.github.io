@@ -34,7 +34,8 @@ Push to `main` runs `.github/workflows/publish.yml`: `npm ci` → `astro check` 
 **Routing / URL scheme is frozen to match the previous Next.js export:** `trailingSlash: "never"` and `build.format: "file"` in `astro.config.mjs`, so `/policies/examease/privacy-policy` is served from `privacy-policy.html`. Don't change these without adding redirects; Search Console has these URLs and `/sitemap.xml`.
 
 **Pages (`src/pages/`):**
-- `index.astro` — the whole portfolio: hero, then six numbered `<Section>`s (about → contact). Emits `Person` + `WebSite` JSON-LD.
+- `index.astro` — the whole portfolio: hero, then seven numbered `<Section>`s (about → faq → contact). Emits enriched `Person` (address, alumniOf, worksFor, knowsAbout), `WebSite` and `FAQPage` JSON-LD. FAQ answers come from `faq[]` in the JSON.
+- `about.astro` — long-form bio rendered from `about.story[]` (heading + paragraphs) with `AboutPage` + breadcrumb JSON-LD. This page exists so search engines and AI crawlers have substantial text about the owner; `public/llms.txt` summarises the same facts for LLM crawlers and `robots.txt` explicitly allows the major AI bots.
 - `policies/[project]/[policy].astro` — renders a policy's markdown (`marked`, build-time) with breadcrumb + `WebPage`/`BreadcrumbList` JSON-LD. Static paths from `allPolicies()`.
 - `sitemap.xml.ts` — hand-rolled endpoint (kept at `/sitemap.xml` deliberately; no `@astrojs/sitemap`). `public/robots.txt` points at it.
 
