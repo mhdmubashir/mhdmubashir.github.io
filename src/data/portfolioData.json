@@ -66,6 +66,18 @@
         "AWS"
       ],
       "link": "https://examease.in/"
+    },
+    {
+      "name": "Unjam",
+      "description": "A game built with the Flutter Flame engine. In closed testing, launching on Google Play (com.mubashir.unjam) in October 2026. The website runs on a self-hosted home server behind Coolify and a Cloudflare Tunnel.",
+      "tech": [
+        "Flutter",
+        "Flame",
+        "Docker",
+        "Coolify",
+        "Cloudflare Tunnel"
+      ],
+      "link": "https://unjam.in/"
     }
   ],
   "apps": [
