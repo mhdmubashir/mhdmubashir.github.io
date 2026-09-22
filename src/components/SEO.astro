@@ -1,0 +1,53 @@
+---
+/**
+ * Everything that goes into <head> for an indexable page.
+ * Pages pass a site-relative `path`; absolute canonical/OG URLs are derived here.
+ */
+import { site, absoluteUrl } from "@/lib/site";
+
+interface Props {
+  /** Page title without the site suffix. Omit for the home page default. */
+  title?: string;
+  description?: string;
+  /** Site-relative path, e.g. "/" or "/policies/examease/privacy-policy". */
+  path: string;
+  ogType?: "website" | "article";
+  ogDescription?: string;
+}
+
+const {
+  title,
+  description = site.description,
+  path,
+  ogType = "website",
+  ogDescription = description,
+} = Astro.props;
+
+const fullTitle = title ? site.titleTemplate.replace("%s", title) : site.titleDefault;
+const canonical = absoluteUrl(path);
+const ogImage = absoluteUrl(site.ogImage.path);
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="author" content={site.author} />
+{path === "/" && <meta name="keywords" content={site.keywords.join(", ")} />}
+{path === "/" && <meta name="google-site-verification" content={site.googleSiteVerification} />}
+
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content={String(site.ogImage.width)} />
+<meta property="og:image:height" content={String(site.ogImage.height)} />
+<meta property="og:image:alt" content={site.ogImage.alt} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={site.ogImage.alt} />

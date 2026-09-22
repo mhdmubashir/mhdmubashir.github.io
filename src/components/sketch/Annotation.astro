@@ -1,0 +1,52 @@
+---
+/**
+ * A handwritten margin note. Purely presentational unless `aria` text is
+ * needed — callers pass real content, never decoration for its own sake.
+ * `arrow` draws a small curved pencil arrow pointing toward the annotated thing.
+ */
+interface Props {
+  arrow?: "down-left" | "down-right" | "right" | "none";
+  class?: string;
+}
+const { arrow = "none", class: className } = Astro.props;
+---
+
+<span class:list={["annotation", "hand", `arrow-${arrow}`, className]}>
+  <slot />
+  {
+    arrow !== "none" && (
+      <svg class="arrow" viewBox="0 0 48 40" width="40" height="34" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 6 C 14 9, 26 18, 40 34" />
+        <path d="M31 33 L40 34 L38 25" />
+      </svg>
+    )
+  }
+</span>
+
+<style>
+  .annotation {
+    position: relative;
+    display: inline-block;
+    font-size: 1.05rem;
+    line-height: 1.25;
+    color: var(--ink-2);
+  }
+  .arrow {
+    position: absolute;
+    color: var(--graphite);
+  }
+  .arrow-down-right .arrow {
+    right: -2.2rem;
+    bottom: -1.9rem;
+  }
+  .arrow-down-left .arrow {
+    left: -2.2rem;
+    bottom: -1.9rem;
+    transform: scaleX(-1);
+  }
+  .arrow-right .arrow {
+    right: -2.6rem;
+    top: 0;
+    transform: rotate(-40deg);
+  }
+</style>

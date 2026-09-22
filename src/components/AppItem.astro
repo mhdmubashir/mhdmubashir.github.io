@@ -1,0 +1,58 @@
+---
+import type { AppData } from "@/types";
+
+interface Props {
+  app: AppData;
+}
+const { app } = Astro.props;
+---
+
+<li class="app">
+  <h3 class="name">{app.name}</h3>
+  <ul class="stores" aria-label={`${app.name} store links`}>
+    {
+      app.playstore && (
+        <li>
+          <a class="pencil-link ext" href={app.playstore} target="_blank" rel="noopener noreferrer">
+            Play Store
+          </a>
+        </li>
+      )
+    }
+    {
+      app.appstore && (
+        <li>
+          <a class="pencil-link ext" href={app.appstore} target="_blank" rel="noopener noreferrer">
+            App Store
+          </a>
+        </li>
+      )
+    }
+  </ul>
+</li>
+
+<style>
+  .app {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-2) var(--space-6);
+    padding-block: var(--space-4);
+    border-top: 1px dashed var(--stroke-2);
+  }
+  .app:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .name {
+    font-size: var(--text-base);
+    font-weight: 500;
+  }
+  .stores {
+    display: flex;
+    gap: var(--space-6);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+</style>

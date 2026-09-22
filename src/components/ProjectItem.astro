@@ -1,0 +1,87 @@
+---
+import type { ProjectData } from "@/types";
+import { policyPath } from "@/lib/content";
+import Underline from "@/components/sketch/Underline.astro";
+
+interface Props {
+  project: ProjectData;
+  index: number;
+}
+const { project, index } = Astro.props;
+const n = String(index + 1).padStart(2, "0");
+---
+
+<li class="project">
+  <p class="mono idx" aria-hidden="true">{n}</p>
+  <div class="body">
+    <h3 class="name"><Underline>{project.name}</Underline></h3>
+    <p class="desc measure">{project.description}</p>
+    <dl class="meta">
+      <dt class="mono">Stack</dt>
+      <dd class="stack">{project.tech.join(" · ")}</dd>
+    </dl>
+    <ul class="links" aria-label={`${project.name} links`}>
+      {
+        project.link && (
+          <li>
+            <a class="pencil-link ext" href={project.link} target="_blank" rel="noopener noreferrer">
+              Visit Website
+            </a>
+          </li>
+        )
+      }
+      {
+        project.policies?.map((policy) => (
+          <li>
+            <a class="pencil-link" href={policyPath(project, policy)}>
+              {policy.urlname}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</li>
+
+<style>
+  .project {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: var(--space-4);
+    padding-block: var(--space-6);
+    border-top: 1px dashed var(--stroke-2);
+  }
+  .project:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .idx {
+    padding-top: 0.55rem;
+  }
+  .name {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2);
+  }
+  .desc {
+    color: var(--ink-2);
+  }
+  .meta {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+    margin-top: var(--space-4);
+  }
+  .stack {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+    margin-top: var(--space-4);
+    font-weight: 500;
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+/**
+ * Draws a loose red-pencil ellipse around a word or short phrase.
+ * Use at most once per page — it is the only colour on the site.
+ */
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<span class:list={["circled", className]}>
+  <slot />
+  <svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true">
+    <path
+      d="M28 8 C 70 -3, 165 -1, 188 18 C 205 33, 178 55, 110 57 C 40 59, 2 48, 6 30 C 9 17, 38 9, 70 6"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      vector-effect="non-scaling-stroke"></path>
+  </svg>
+</span>
+
+<style>
+  .circled {
+    position: relative;
+    display: inline-block;
+    padding-inline: 0.12em;
+  }
+  svg {
+    position: absolute;
+    inset: -0.28em -0.45em -0.22em -0.4em;
+    width: calc(100% + 0.85em);
+    height: calc(100% + 0.5em);
+    color: var(--mark);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+</style>

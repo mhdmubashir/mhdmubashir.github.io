@@ -1,0 +1,124 @@
+---
+import Monogram from "@/components/Monogram.astro";
+import { sections } from "@/lib/content";
+
+const isHome = Astro.url.pathname === "/";
+const href = (id: string) => (isHome ? `#${id}` : `/#${id}`);
+---
+
+<header class="site-header">
+  <div class="page bar">
+    <a class="wordmark" href="/" aria-label="Muhammed Mubashir — home">
+      <Monogram size={26} />
+      <span class="hand">Mubashir</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href={isHome ? "#top" : "/"} data-section="top">Home</a></li>
+        {
+          sections.map((s) => (
+            <li>
+              <a href={href(s.id)} data-section={s.id}>
+                {s.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--stroke-2);
+  }
+  .bar {
+    min-height: var(--header-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    padding-block: var(--space-2);
+  }
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: var(--ink);
+  }
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 1.1rem;
+  }
+  nav a {
+    display: inline-block;
+    padding: 0.35rem 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    text-decoration: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 5' preserveAspectRatio='none'><path d='M1 3 C 15 1.6, 30 4, 45 2.6 S 55 3.4, 59 2.4' fill='none' stroke='%231d1c1a' stroke-width='1.4' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-size: 0% 4px;
+    background-position: 0 100%;
+    transition: background-size var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  nav a:hover,
+  nav a:focus-visible,
+  nav a[aria-current="true"] {
+    color: var(--ink);
+    background-size: 100% 4px;
+  }
+  @media (max-width: 40rem) {
+    .bar {
+      justify-content: center;
+      text-align: center;
+    }
+    nav ul {
+      justify-content: center;
+      gap: 0 0.9rem;
+    }
+  }
+</style>
+
+<script>
+  // Progressive enhancement: mark the section in view in the nav.
+  // The site is fully usable without this (plain anchor links).
+  const links = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>('nav a[data-section]'),
+  );
+  const targets = links
+    .map((a) => document.getElementById(a.dataset.section ?? ""))
+    .filter((el): el is HTMLElement => el !== null);
+
+  if (targets.length && "IntersectionObserver" in window) {
+    const setActive = (id: string) =>
+      links.forEach((a) =>
+        a.dataset.section === id
+          ? a.setAttribute("aria-current", "true")
+          : a.removeAttribute("aria-current"),
+      );
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+      },
+      { rootMargin: "-40% 0px -55% 0px" },
+    );
+    targets.forEach((t) => io.observe(t));
+  }
+</script>

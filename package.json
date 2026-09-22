@@ -1,26 +1,21 @@
 {
-  "name": "portfolio-web-nextjs",
-  "version": "0.1.0",
+  "name": "mhdmubashir-portfolio",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "assets": "bash scripts/build-assets.sh"
   },
   "dependencies": {
-    "next": "16.2.10",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "react-markdown": "^10.1.0"
+    "astro": "^7.3.3",
+    "marked": "^18.0.14"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.10",
-    "jimp": "^1.6.1",
+    "@astrojs/check": "^0.9.6",
     "typescript": "^5"
   }
 }

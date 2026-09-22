@@ -1,0 +1,35 @@
+---
+import Divider from "@/components/sketch/Divider.astro";
+import { data } from "@/lib/content";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="page">
+    <Divider />
+    <div class="row">
+      <p class="mono">&copy; {year} {data.personal.name}. All rights reserved.</p>
+      <a class="mono top" href="#top">Back to top &uarr;</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: var(--space-8) var(--space-12);
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-6);
+    padding-top: var(--space-4);
+  }
+  .top {
+    text-decoration: none;
+  }
+  .top:hover {
+    color: var(--ink);
+  }
+</style>

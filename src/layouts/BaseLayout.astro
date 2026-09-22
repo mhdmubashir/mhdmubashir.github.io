@@ -1,0 +1,69 @@
+---
+import "@/styles/global.css";
+import SEO from "@/components/SEO.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { site } from "@/lib/site";
+import plexSansUrl from "@/assets/fonts/ibm-plex-sans-latin-wght-normal.woff2?url";
+
+interface Props {
+  title?: string;
+  description?: string;
+  path: string;
+  ogType?: "website" | "article";
+  ogDescription?: string;
+  /** JSON-LD objects to emit, one <script> each. Never fabricated — pages pass real data. */
+  jsonLd?: Record<string, unknown>[];
+}
+
+const { jsonLd = [], ...seo } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SEO {...seo} />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content={site.themeColor} />
+
+    <!-- Only the body font is critical for LCP; the others load with swap. -->
+    <link rel="preload" href={plexSansUrl} as="font" type="font/woff2" crossorigin />
+
+    {jsonLd.map((obj) => <script type="application/ld+json" set:html={JSON.stringify(obj)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .skip {
+    position: absolute;
+    left: var(--gutter);
+    top: -100%;
+    z-index: 100;
+    padding: 0.5rem 0.75rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-decoration: none;
+  }
+  .skip:focus {
+    top: 0.5rem;
+  }
+  main:focus {
+    outline: none;
+  }
+</style>

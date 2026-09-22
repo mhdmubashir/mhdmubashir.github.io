@@ -1,0 +1,50 @@
+---
+import type { ExperienceData } from "@/types";
+
+interface Props {
+  item: ExperienceData;
+}
+const { item } = Astro.props;
+---
+
+<li class="row">
+  <p class="mono when">{item.duration}</p>
+  <div class="what">
+    <h3 class="role">{item.role}</h3>
+    <p class="company">{item.company}</p>
+    <p class="desc measure">{item.description}</p>
+  </div>
+</li>
+
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-1) var(--space-8);
+    padding-block: var(--space-6);
+    border-top: 1px dashed var(--stroke-2);
+  }
+  .row:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .when {
+    padding-top: 0.35rem;
+    white-space: nowrap;
+  }
+  .role {
+    font-size: var(--text-lg);
+  }
+  .company {
+    color: var(--ink-2);
+    margin-bottom: var(--space-2);
+  }
+  .desc {
+    color: var(--ink-2);
+  }
+  @media (min-width: 48rem) {
+    .row {
+      grid-template-columns: 11rem minmax(0, 1fr);
+    }
+  }
+</style>

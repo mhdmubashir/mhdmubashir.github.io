@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <!-- Paper tile with pencil-drawn M. Source for icon-192/512, maskable, apple-touch-icon, favicon.ico -->
+  <rect width="64" height="64" fill="#f6f4ee"/>
+  <g fill="none" stroke="#1d1c1a" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 51 L16.5 14 L32 39.5 L47.5 13.5 L50 51" stroke-width="5.5"/>
+    <path d="M12.5 50.5 L15 15.5 L32 41.5 L49 15 L51.5 50" stroke-width="1.6" opacity=".35"/>
+  </g>
+</svg>

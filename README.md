@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mhdmubashir.github.io
 
-## Getting Started
+Personal portfolio of Muhammed Mubashir — a static [Astro](https://astro.build) site
+designed like an engineering notebook (paper, graphite, a few pencil annotations).
 
-First, run the development server:
+Live: https://mhdmubashir.github.io
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:4321
+npm run check    # astro check (TypeScript + template diagnostics)
+npm run build    # static output in ./dist
+npm run preview  # serve ./dist locally
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Edit content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All copy lives in `src/data/portfolioData.json` (typed by `src/types/index.ts`).
+Site-wide metadata (URL, titles, descriptions, keywords, verification) lives in
+`src/lib/site.ts`. Pages and components only read from those two files.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Brand assets
 
-## Learn More
+Sources in `branding/` (monogram SVG, OG/social templates). Regenerate every
+raster export (favicons, app icons, OG image, LinkedIn cover, avatar) with:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Requires `rsvg-convert` (librsvg) and Google Chrome on the machine.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pushing to `main` runs `.github/workflows/publish.yml`, which builds `./dist`
+and deploys it to GitHub Pages.

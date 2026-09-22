@@ -1,0 +1,277 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/Section.astro";
+import ExperienceItem from "@/components/ExperienceItem.astro";
+import ProjectItem from "@/components/ProjectItem.astro";
+import AppItem from "@/components/AppItem.astro";
+import Divider from "@/components/sketch/Divider.astro";
+import Annotation from "@/components/sketch/Annotation.astro";
+import Circled from "@/components/sketch/Circled.astro";
+import portrait from "@/assets/portrait.jpg";
+import { data, whatsappUrl } from "@/lib/content";
+import { site } from "@/lib/site";
+
+const { personal, about, skills, experience, projects, apps, cta } = data;
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: personal.name,
+  additionalName: site.additionalName,
+  url: site.url,
+  image: `${site.url}/og-image.png`,
+  jobTitle: site.jobTitle,
+  email: `mailto:${personal.email}`,
+  telephone: personal.phone,
+  worksFor: { "@type": "Organization", name: site.worksFor },
+  sameAs: [personal.github, personal.linkedin],
+};
+
+const webSiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.name,
+  url: site.url,
+  author: { "@type": "Person", name: personal.name },
+};
+---
+
+<BaseLayout path="/" jsonLd={[personJsonLd, webSiteJsonLd]}>
+  <div class="page notebook">
+    <!-- 00 · Hero -->
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <p class="lead-in">
+          <Annotation arrow="down-left">hello, I'm</Annotation>
+        </p>
+        <h1 id="hero-title" class="name">{personal.name}</h1>
+        <p class="role">{personal.title}</p>
+        <p class="tagline measure">{personal.tagline}</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">{cta.primary}</a>
+          <a class="btn" href="#projects">{cta.secondary}</a>
+        </div>
+      </div>
+
+      <figure class="portrait">
+        <Image
+          src={portrait}
+          alt={`Portrait of ${personal.name}`}
+          width={220}
+          height={220}
+          densities={[1, 2]}
+          format="webp"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <figcaption class="hand">fig. 1 — {personal.location}</figcaption>
+      </figure>
+    </section>
+
+    <!-- 01 · About -->
+    <Section id="about" number="01" title="About Me">
+      <p class="measure about">{about.description}</p>
+    </Section>
+
+    <!-- 02 · Skills -->
+    <Section id="skills" number="02" title="Skills" note="no particular order">
+      <ul class="skills">
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </Section>
+
+    <!-- 03 · Experience -->
+    <Section id="experience" number="03" title="Experience">
+      <ol class="list" reversed>
+        {experience.map((item) => <ExperienceItem {item} />)}
+      </ol>
+    </Section>
+
+    <!-- 04 · Projects -->
+    <Section id="projects" number="04" title="Projects">
+      <ol class="list">
+        {projects.map((project, i) => <ProjectItem {project} index={i} />)}
+      </ol>
+    </Section>
+
+    <!-- 05 · Apps -->
+    <Section id="apps" number="05" title="Apps" note="on the stores">
+      <ul class="list">
+        {apps.map((app) => <AppItem {app} />)}
+      </ul>
+    </Section>
+
+    <!-- 06 · Contact -->
+    <Section id="contact" number="06" title="Contact">
+      <dl class="contact">
+        <div>
+          <dt class="mono">Email</dt>
+          <dd><a class="pencil-link" href={`mailto:${personal.email}`}>{personal.email}</a></dd>
+        </div>
+        <div>
+          <dt class="mono">Phone</dt>
+          <dd><a class="pencil-link" href={`tel:${personal.phone}`}>{personal.phone}</a></dd>
+        </div>
+        <div>
+          <dt class="mono">Location</dt>
+          <dd>{personal.location}</dd>
+        </div>
+      </dl>
+
+      <p class="elsewhere">
+        <span class="mono">Elsewhere</span>
+        <a class="pencil-link ext" href={personal.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="pencil-link ext" href={personal.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="pencil-link ext" href={whatsappUrl(personal.phone)} target="_blank" rel="noopener noreferrer">
+          <Circled>WhatsApp</Circled>
+        </a>
+      </p>
+    </Section>
+
+    <Divider label="end of notes" />
+  </div>
+</BaseLayout>
+
+<style>
+  /* Notebook column with a faint vertical margin rule on wide screens. */
+  .notebook {
+    padding-top: var(--space-8);
+  }
+  @media (min-width: 64rem) {
+    .notebook {
+      background: linear-gradient(var(--stroke-2), var(--stroke-2)) no-repeat
+        calc(var(--margin-col) - var(--space-4)) 0 / 1px 100%;
+    }
+  }
+
+  /* Hero */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+    align-items: start;
+    padding-block: var(--space-8) var(--space-16);
+  }
+  .lead-in {
+    margin-bottom: var(--space-3);
+    padding-left: 2.6rem; /* room for the arrow to land at the start of the name */
+  }
+  .name {
+    font-size: var(--text-2xl);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-3);
+  }
+  .role {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: var(--space-4);
+  }
+  .tagline {
+    color: var(--ink-2);
+    font-size: var(--text-base);
+    margin-bottom: var(--space-8);
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .portrait {
+    margin: 0;
+    justify-self: start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: 0.55rem;
+    border: 1.5px solid var(--ink);
+    /* hand-ruled photo corner */
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    transform: rotate(-1.2deg);
+    background: var(--paper-2);
+  }
+  .portrait img {
+    border-radius: 2px;
+    filter: grayscale(0.15) contrast(1.02);
+  }
+  .portrait figcaption {
+    font-size: 0.95rem;
+    color: var(--graphite);
+    padding-inline: 0.2rem;
+  }
+
+  @media (min-width: 48rem) {
+    .hero {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-12);
+    }
+    .portrait {
+      justify-self: end;
+      margin-top: var(--space-4);
+      transform: rotate(1.6deg);
+    }
+  }
+  @media (min-width: 64rem) {
+    .hero {
+      /* align with section bodies: margin column + grid gap */
+      padding-left: calc(var(--margin-col) + var(--space-6));
+      padding-block: var(--space-16) var(--space-24);
+    }
+  }
+
+  /* Section bodies */
+  .about {
+    font-size: var(--text-lg);
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: var(--space-2) var(--space-6);
+    max-width: 44rem;
+  }
+  .skills li {
+    position: relative;
+    padding: 0.35rem 0 0.35rem 1.4rem;
+    border-bottom: 1px dotted var(--stroke-2);
+  }
+  .skills li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M3 8.5 L6.5 12 L13.5 4' fill='none' stroke='%237a776f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat center / contain;
+  }
+
+  .list {
+    max-width: 52rem;
+  }
+
+  .contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr));
+    gap: var(--space-6) var(--space-8);
+    max-width: 61rem;
+  }
+  .contact dd {
+    margin: 0.2rem 0 0;
+    font-size: var(--text-base);
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+  .elsewhere {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2) var(--space-6);
+    margin-top: var(--space-8);
+    font-weight: 500;
+  }
+</style>

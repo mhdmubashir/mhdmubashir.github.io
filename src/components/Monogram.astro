@@ -1,0 +1,27 @@
+---
+/**
+ * Pencil-drawn "M" monogram. Inline SVG so it inherits currentColor.
+ * The same strokes are used for favicon.svg and the brand exports in /branding.
+ */
+interface Props {
+  size?: number;
+  class?: string;
+}
+const { size = 28, class: className } = Astro.props;
+---
+
+<svg
+  class={className}
+  width={size}
+  height={size}
+  viewBox="0 0 64 64"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d="M13 52 L15.5 13 L32 40 L48.5 12.5 L51 52" stroke-width="5" />
+  <path d="M11.5 51.5 L14 14.5 L32 42 L50 14 L52.5 51" stroke-width="1.6" opacity=".35" />
+</svg>

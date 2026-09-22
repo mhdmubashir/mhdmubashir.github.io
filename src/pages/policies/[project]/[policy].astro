@@ -1,0 +1,141 @@
+---
+import { marked } from "marked";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "@/components/sketch/Divider.astro";
+import { allPolicies, policyPath, projectSlug } from "@/lib/content";
+import { site, absoluteUrl } from "@/lib/site";
+import type { PolicyData, ProjectData } from "@/types";
+
+export function getStaticPaths() {
+  return allPolicies().map(({ project, policy }) => ({
+    params: { project: projectSlug(project), policy: policy.type },
+    props: { project, policy },
+  }));
+}
+
+interface Props {
+  project: ProjectData;
+  policy: PolicyData;
+}
+const { project, policy } = Astro.props;
+
+const path = policyPath(project, policy);
+const title = `${policy.urlname} - ${project.name}`;
+const description = `Read the ${policy.urlname.toLowerCase()} for ${project.name}.`;
+const html = marked.parse(policy.content, { async: false });
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Portfolio", item: site.url },
+    { "@type": "ListItem", position: 2, name: project.name, item: project.link || absoluteUrl("/#projects") },
+    { "@type": "ListItem", position: 3, name: policy.urlname, item: absoluteUrl(path) },
+  ],
+};
+
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: title,
+  url: absoluteUrl(path),
+  description,
+  isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
+  about: { "@type": "SoftwareApplication", name: project.name, url: project.link },
+};
+---
+
+<BaseLayout {title} {description} {path} ogType="article" jsonLd={[breadcrumbJsonLd, webPageJsonLd]}>
+  <div class="page doc">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a class="pencil-link" href="/">Portfolio</a></li>
+        <li><a class="pencil-link" href="/#projects">{project.name}</a></li>
+        <li aria-current="page">{policy.urlname}</li>
+      </ol>
+    </nav>
+
+    <article class="prose" set:html={html} />
+
+    <Divider class="end" label="end of document" />
+    <p class="back"><a class="btn" href="/">&larr; Back to Portfolio</a></p>
+  </div>
+</BaseLayout>
+
+<style>
+  .doc {
+    max-width: 44rem;
+    padding-block: var(--space-8) var(--space-12);
+  }
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    margin-bottom: var(--space-12);
+  }
+  .crumbs li + li::before {
+    content: "/";
+    margin-right: 0.4rem;
+    color: var(--stroke);
+  }
+  .crumbs a {
+    color: var(--ink-2);
+  }
+  .doc :global(.end) {
+    margin-top: var(--space-12);
+  }
+  .back {
+    margin-top: var(--space-8);
+  }
+
+  /* Markdown content */
+  .prose :global(h1) {
+    font-size: var(--text-2xl);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-3);
+  }
+  .prose :global(h1 + p) {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--graphite);
+    margin-bottom: var(--space-8);
+  }
+  .prose :global(h2) {
+    font-size: var(--text-lg);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-2);
+    padding-top: var(--space-4);
+    border-top: 1px dashed var(--stroke-2);
+  }
+  .prose :global(h3) {
+    font-size: var(--text-base);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-2);
+  }
+  .prose :global(p),
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: var(--space-4);
+    color: var(--ink-2);
+  }
+  .prose :global(ul) {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .prose :global(ol) {
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+  .prose :global(a) {
+    color: var(--ink);
+  }
+  .prose :global(strong) {
+    color: var(--ink);
+    font-weight: 600;
+  }
+</style>
